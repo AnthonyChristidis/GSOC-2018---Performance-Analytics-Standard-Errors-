@@ -1,5 +1,7 @@
 ## GSOC 2018 - Performance Analytics Standard Errors
 
+# Student Information
+
 The current finance industry practice in reporting risk and performance measure estimates of assets
 and portfolios does not typically include reporting the standard error of these estimates: consumers have
 no clue as to how accurate those estimates are. A new approach based on influence functions has been developed to provide an accurate estimate of standard errors of risk and performance of assets and portfolios for returns with both serially uncorrelated and serially correlated returns. This project involves: 
