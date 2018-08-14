@@ -24,6 +24,7 @@ As explained in the previous section, this project contains multiple software pa
 ### *InfluenceFunctions* Package
 
 * Package Link: [*InfluenceFunctions*](https://github.com/AnthonyChristidis/InfluenceFunctions)
+* Package Details: This package was created entirely during the project. It computes the influence functions time series of various risk and performance measures. The computation is available both in *R and *C++*, with pre-whitening and robust filtering of the time series available as well. Additional functions to plot the influence functions of risk and performance measures are also available. A plot method is also available (implementation is in **ggplot2**).
 
 ### *glmGammaNet* Package
 
