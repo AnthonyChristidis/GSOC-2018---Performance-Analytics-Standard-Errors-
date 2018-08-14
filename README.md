@@ -21,6 +21,6 @@ with the goal of giving the **PerformanceAnalytics** package users more function
 
 As explained in the previous section, this project contains multiple software packages that are interconnected to each other (see project proposal for more details). Below are some details, notes and examples for each of theses packages.
 
-### **InfluenceFunctions** Package
+### *InfluenceFunctions* Package
 
 
