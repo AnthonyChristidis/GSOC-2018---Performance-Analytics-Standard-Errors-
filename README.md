@@ -65,16 +65,24 @@ IF.SR.plot()
 ```
 devtools::install_github("AnthonyChristidis/glmGammaNet")
 ```
-This issue will need to be fixed. In the meantime, it is recommended to download the package files from here, and to install the package via the command prompt. Here is a [link](http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf) on how to do so (see Section 3, *Building R Package with Command Line Tools*).
+This issue will need to be fixed. In the meantime, it is recommended to download the package files from [here](https://github.com/AnthonyChristidis/glmGammaNet), and to install the package via the command prompt. Here is a [link](http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf) on how to do so (see Section 3, *Building R Package with Command Line Tools*).
+
+* Sample Code: 
 
 
 ### *EstimatorStandardError* Package
 
 * Repositorty Link: [*EstimatorStandardError*](https://github.com/AnthonyChristidis/EstimatorStandardError)
 
+* Package Details: 
+
 ### *PerformanceAnalytics* Package
 
 * Repositorty Link: [*PerformanceAnalytics*](https://github.com/AnthonyChristidis/PerformanceAnalytics)
+
+* Package Details:
+
+* Sample Code:
 
 
 
