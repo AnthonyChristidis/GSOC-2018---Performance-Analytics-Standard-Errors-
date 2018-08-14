@@ -29,7 +29,22 @@ As explained in the previous section, this project contains multiple software pa
 
 * Sample Code:
 ```
+# Load package
 library(InfluenceFunctions)
+
+# Load data
+data(edhec)
+
+# Compute basic TS for the mean 
+if.mean <- IF.mean(edhec$CA)
+plot.IF_TS(if.mean)
+
+# Repeat the above but use pre-whitening and robust estimation
+if.mean.pre.robust <- IF.mean(edhec$CA, pre.whiten=TRUE, robust.filtering=TRUE, robust.method="Boudt")
+plot.IF_TS(if.mean)
+
+# Compare the two IF TS
+
 
 ```
 
