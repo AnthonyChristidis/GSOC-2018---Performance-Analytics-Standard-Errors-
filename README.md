@@ -23,6 +23,8 @@ As explained in the previous section, this project contains multiple software pa
 
 ### *InfluenceFunctions* Package
 
+* Package Link: [InfluenceFunctions](https://github.com/AnthonyChristidis/InfluenceFunctions)
+
 ### *glmGammaNet* Package
 
 ### *EstimatorStandardError* Package
