@@ -4,9 +4,7 @@
 
 * Student Developer: Anthony Christidis ([anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca))
 * Project Proposal: [Performance Analytics Standard Errors](https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf)
-* Mentors: 
-1. [anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca)
-2. [anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca)
+* Mentors: [Dr. Douglas Martin](doug@amath.washington.edu), [Brian Peterson](anthony.christidis@stat.ubc.ca), [Xin Chen](anthony.christidis@stat.ubc.ca) and [Dr. Ruben Zamar](anthony.christidis@stat.ubc.ca)
 
 ## Project Background
 
