@@ -131,11 +131,39 @@ se.SR <- SharpeRatio.SE(edhec$CA, Rf = 0, p = 0.95, FUN="StdDev", nsim=nboot,
 
 * Repositorty Link: [*PerformanceAnalytics*](https://github.com/AnthonyChristidis/PerformanceAnalytics)
 
-* Package Details: 
+* Package Details: The main task for this package, which was the final step, was to integrate the computation of standard errors for risk and performance measures into **PerformanceAnalytics**. It was implemented for all risk and performance measures available in the package. A vignette is also being developed to demonstrate the new functionality of **PerformanceAnalytics** to compute standard errors for risk and performance measures.
 
 * Sample Code:
 ```
-devtools::install_github("AnthonyChristidis/glmGammaNet")
+#--------- Load package
+library(PerformanceAnalytics)
+
+#--------- Load data
+data(edhec)
+colnames(edhec)=c("CA", "CTAG", "DIS", "EM",
+                  "EMN", "ED", "FIA", "GM", "L/S",
+                  "MA", "RV", "SS", "FoF")
+                  
+#--------- Set parameters                  
+nboot=500
+return.coeffs = TRUE
+d.GLM.EN = 5
+alpha.ES = 0.05
+alpah.EN = 0.5
+seed = 12345
+k_fold_iter = 1000
+set.seed(seed)
+
+#--------- Standard Deviation
+StdDev(edhec, SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+
+#--------- Expected Shortfall
+ES(edhec, p=.95, method="historical", 
+   SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+
+#--------- Value-at-Risk
+VaR(edhec, p=.95, method="historical", SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+
 ```
 
 
