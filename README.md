@@ -44,13 +44,29 @@ if.mean.pre.robust <- IF.mean(edhec$CA, pre.whiten=TRUE, robust.filtering=TRUE, 
 plot.IF_TS(if.mean)
 
 # Compare the two IF TS
+plot(if.mean, col="blue")
+lines(if.mean.pre.robust, col="red")
 
-
+# Plot IF for various risk measures
+IF.mean.plot()
+IF.SD.plot()
+IF.VaR.plot()
+IF.ES.plot()
+IF.SR.plot()
 ```
 
 ### *glmGammaNet* Package
 
 * Repositorty Link: [*glmGammaNet*](https://github.com/AnthonyChristidis/glmGammaNet)
+
+* Package Details: The main task for this package was to merge the [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp) package to the **glmGammaNet** package, such that the overall function from **glmGammaNet** supports both the Exponential and Gamma distributions. This package was then implemented into the **EstimatorStandardError** package. Initially, only the Exponential distribution from **glmnetRcpp** was available to fit the spectral density of the influence functions of the risk and performance measures.
+
+* IMPORTANT NOTE: A compilation occurs when attempting to download the **glmGammaNet** package via the command:
+```
+devtools::install_github("AnthonyChristidis/glmGammaNet")
+```
+This issue will need to be fixed. In the meantime, it is recommended to download the package files from here, and to install the package via the command prompt. Here is a [link](http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf) on how to do so (see Section 3, *Building R Package with Command Line Tools*).
+
 
 ### *EstimatorStandardError* Package
 
