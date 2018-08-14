@@ -28,8 +28,14 @@ As explained in the previous section, this project contains multiple software pa
 
 ### *glmGammaNet* Package
 
+* Package Link: [*glmGammaNet*](https://github.com/AnthonyChristidis/glmGammaNet)
+
 ### *EstimatorStandardError* Package
 
+* Package Link: [*EstimatorStandardError*](https://github.com/AnthonyChristidis/EstimatorStandardError)
+
 ### *PerformanceAnalytics* Package
+
+* Package Link: [*PerformanceAnalytics*](https://github.com/AnthonyChristidis/PerformanceAnalytics)
 
 
