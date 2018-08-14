@@ -1,6 +1,11 @@
 ## GSOC 2018 - Performance Analytics Standard Errors
 
-# Student Information
+# Logistics
+
+* Student Developer: Anthony Christidis ([anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca))
+* Project Proposal: [https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf](Performance Analytics Standard Errors)
+
+# Project Background
 
 The current finance industry practice in reporting risk and performance measure estimates of assets
 and portfolios does not typically include reporting the standard error of these estimates: consumers have
@@ -11,4 +16,4 @@ no clue as to how accurate those estimates are. A new approach based on influenc
 
 with the goal of giving **PerformanceAnalytics** package users more functionality and the option for the first time to report the standard errors of a very wide range of risk and performance measure estimates of assets and portfolios when returns are serially correlated as well as when they are uncorrelated.
 
-Anthony Christidis ([anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca))
+
