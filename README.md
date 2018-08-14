@@ -55,6 +55,8 @@ IF.ES.plot()
 IF.SR.plot()
 ```
 
+* Note: While the documentation is complete for this package, the vignette will need to be expanded further to demonstrate the full use of the **InfluenceFunctions** package. Further, the robust filtering methods may be updated soon to support more reliable methods to clean outliers for influence functions time series.
+
 ### *glmGammaNet* Package
 
 * Repositorty Link: [*glmGammaNet*](https://github.com/AnthonyChristidis/glmGammaNet)
@@ -67,22 +69,74 @@ devtools::install_github("AnthonyChristidis/glmGammaNet")
 ```
 This issue will need to be fixed. In the meantime, it is recommended to download the package files from [here](https://github.com/AnthonyChristidis/glmGammaNet), and to install the package via the command prompt. Here is a [link](http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf) on how to do so (see Section 3, *Building R Package with Command Line Tools*).
 
-* Sample Code: 
-
-
 ### *EstimatorStandardError* Package
 
 * Repositorty Link: [*EstimatorStandardError*](https://github.com/AnthonyChristidis/EstimatorStandardError)
 
-* Package Details: 
+* Package Details: The main task for this package was to integrate the **InfluenceFunctions** and **glmGammaNet** packages into **EstimatorStandardError**. This allows the user to use both pre-whitening and robust filtering of the influence functions time series prior to fitting either the Exponential or Gamma distributions.
+
+* Sample Code: 
+```
+#--------- Load package
+library(EstimatorStandardError)
+
+# Load data
+data(edhec)
+colnames(edhec)=c("CA", "CTAG", "DIS", "EM",
+                  "EMN", "ED", "FIA", "GM", "L/S",
+                  "MA", "RV", "SS", "FoF")
+                  
+#--------- Set parameters                  
+nboot=500
+return.coeffs = TRUE
+d.GLM.EN = 5
+alpha.ES = 0.05
+alpah.EN = 0.5
+seed = 12345
+k_fold_iter = 1000
+set.seed(seed)
+
+#--------- Expected Shortfall estimates and their S.E.'s
+se.ES <- ES.SE(edhec$CA, p = 1 - alpha.ES, method="historical",nsim = nboot,
+               se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
+               standardize = FALSE, return.coeffs = return.coeffs,
+               k_fold_iter = k_fold_iter,
+               d.GLM.EN = d.GLM.EN,
+               alpha = alpha.EN, exponential.dist = FALSE)
+
+se.ES.exp <- ES.SE(edhec$CA, p = 1 - alpha.ES, method="historical",nsim = nboot,
+                   se.method = c("IFcor"),
+                   standardize = FALSE, return.coeffs = return.coeffs,
+                   k_fold_iter = k_fold_iter,
+                   d.GLM.EN = d.GLM.EN, clean = "none", prewhiten = FALSE,
+                   alpha = alpha.EN, exponential.dist = TRUE)
+
+#--------- Sortino Ratios estimates and their S.E.'s
+se.SoR.const <- SortinoRatio.SE(edhec$CA, sortino.method = "const",
+                                se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
+                                exponential.dist=TRUE)
+
+se.SoR.mean <- SortinoRatio.SE(edhec$CA, sortino.method = "mean",
+                               se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
+                               exponential.dist=TRUE)
+
+#--------- Sharpe Ratio estimates and their S.E.'s
+se.SR <- SharpeRatio.SE(edhec$CA, Rf = 0, p = 0.95, FUN="StdDev", nsim=nboot,
+                        se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
+                        weights=NULL, annualize = FALSE,
+                        exponential.dist=TRUE)
+```
 
 ### *PerformanceAnalytics* Package
 
 * Repositorty Link: [*PerformanceAnalytics*](https://github.com/AnthonyChristidis/PerformanceAnalytics)
 
-* Package Details:
+* Package Details: 
 
 * Sample Code:
+```
+devtools::install_github("AnthonyChristidis/glmGammaNet")
+```
 
 
 
