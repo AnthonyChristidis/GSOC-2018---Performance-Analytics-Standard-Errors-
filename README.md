@@ -3,7 +3,7 @@
 # Logistics
 
 * Student Developer: Anthony Christidis ([anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca))
-* Project Proposal: [https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf](Performance-Analytics-Standard-Errors)
+* Project Proposal: [Performance Analytics Standard Errors](https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf)
 
 # Project Background
 
