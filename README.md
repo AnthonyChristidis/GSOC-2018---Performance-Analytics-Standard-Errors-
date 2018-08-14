@@ -1,11 +1,11 @@
-## GSOC 2018 - Performance Analytics Standard Errors
+# GSOC 2018 - Performance Analytics Standard Errors
 
-# Logistics
+## Logistics
 
 * Student Developer: Anthony Christidis ([anthony.christidis@stat.ubc.ca](anthony.christidis@stat.ubc.ca))
 * Project Proposal: [Performance Analytics Standard Errors](https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf)
 
-# Project Background
+## Project Background
 
 The current finance industry practice in reporting risk and performance measure estimates of assets
 and portfolios does not typically include reporting the standard error of these estimates: consumers have
