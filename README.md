@@ -8,6 +8,7 @@ errors of risk and performance of assets and portfolios for returns with both se
 ally correlated returns. This project involves: 
 1. Developing a new R package named InfluenceFunctions, and
 2. Integrating the R package EstimatorStandardError in conjunction with InfluenceFunctions
+
 into the existing R package PerformanceAnalytics, with the goal of giving PerformanceAnalytics pack-
 age users more functionality and the option for the first time to report the standard errors of a very
 wide range of risk and performance measure estimates of assets and portfolios when returns are serially
