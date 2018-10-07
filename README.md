@@ -34,6 +34,7 @@ library(InfluenceFunctions)
 
 # Load data
 data(edhec)
+data(CA.fund)
 
 # Compute basic TS for the mean 
 if.mean <- IF.mean(edhec$CA)
