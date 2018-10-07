@@ -155,8 +155,6 @@ seed = 12345
 k_fold_iter = 1000
 set.seed(seed)
 
-#--------- Standard Deviation
-StdDev(edhec, SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
 
 #--------- Expected Shortfall
 ES(edhec, p=.95, method="historical", 
@@ -164,6 +162,9 @@ ES(edhec, p=.95, method="historical",
 
 #--------- Value-at-Risk
 VaR(edhec, p=.95, method="historical", SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+
+#--------- Standard Deviation
+StdDev(edhec, SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
 
 ```
 
