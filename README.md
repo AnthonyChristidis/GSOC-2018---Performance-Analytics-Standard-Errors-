@@ -25,6 +25,11 @@ As explained in the previous section, this project contains multiple software pa
 
 * Repositorty Link: [*InfluenceFunctions*](https://github.com/AnthonyChristidis/InfluenceFunctions)
 
+* R code to download the package directly from Github: 
+```
+devtools::install_github("AnthonyChristidis/InfluenceFunctions")
+```
+
 * Package Details: This package was created entirely during the project. It computes the influence functions time series of various risk and performance measures. The computation is available both in *R* and *C++*, with pre-whitening and robust filtering options of the time series available as well. Additional functions to plot the influence functions of risk and performance measures are also available. A plot method is also available (implementation is in **ggplot2**).
 
 * Sample Code:
@@ -62,17 +67,23 @@ IF.SR.plot()
 
 * Repositorty Link: [*glmGammaNet*](https://github.com/AnthonyChristidis/glmGammaNet)
 
-* Package Details: The main task for this package was to merge the [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp) package to the **glmGammaNet** package, such that the overall function from **glmGammaNet** supports both the Exponential and Gamma distributions. This package was then implemented into the **EstimatorStandardError** package. Initially, only the Exponential distribution from **glmnetRcpp** was available to fit the spectral density of the influence functions of the risk and performance measures.
-
-* IMPORTANT NOTE: A compilation occurs when attempting to download the **glmGammaNet** package via the command:
+* R code to download the package directly from Github: 
 ```
 devtools::install_github("AnthonyChristidis/glmGammaNet")
 ```
+
+* Package Details: The main task for this package was to merge the [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp) package to the **glmGammaNet** package, such that the overall function from **glmGammaNet** supports both the Exponential and Gamma distributions. This package was then implemented into the **EstimatorStandardError** package. Initially, only the Exponential distribution from **glmnetRcpp** was available to fit the spectral density of the influence functions of the risk and performance measures.
+
 This issue will need to be fixed. In the meantime, it is recommended to download the package files from [here](https://github.com/AnthonyChristidis/glmGammaNet), and to install the package via the command prompt. Here is a [link](http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf) on how to do so (see Section 3, *Building R Package with Command Line Tools*).
 
 ### *EstimatorStandardError* Package
 
 * Repositorty Link: [*EstimatorStandardError*](https://github.com/AnthonyChristidis/EstimatorStandardError)
+
+* R code to download the package directly from Github: 
+```
+devtools::install_github("AnthonyChristidis/EstimatorStandardError")
+```
 
 * Package Details: The main task for this package was to integrate the **InfluenceFunctions** and **glmGammaNet** packages into **EstimatorStandardError**. This allows the user to use both pre-whitening and robust filtering of the influence functions time series prior to fitting either the Exponential or Gamma distributions.
 
@@ -131,6 +142,11 @@ se.SR <- SharpeRatio.SE(edhec$CA, Rf = 0, p = 0.95, FUN="StdDev", nsim=nboot,
 ### *PerformanceAnalytics* Package
 
 * Repositorty Link: [*PerformanceAnalytics*](https://github.com/AnthonyChristidis/PerformanceAnalytics)
+
+* R code to download the package directly from Github: 
+```
+devtools::install_github("AnthonyChristidis/PerformanceAnalytics")
+```
 
 * Package Details: The main task for this package, which was the final step, was to integrate the computation of standard errors for risk and performance measures into **PerformanceAnalytics**. It was implemented for all risk and performance measures available in the package. A vignette is also being developed to demonstrate the new functionality of **PerformanceAnalytics** to compute standard errors for risk and performance measures.
 
