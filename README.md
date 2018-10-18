@@ -63,6 +63,17 @@ IF.SR.plot()
 
 * Note: While the documentation is complete for this package, the vignette will need to be expanded further to demonstrate the full use of the **InfluenceFunctions** package. Further, the robust filtering methods may be updated soon to support more reliable methods to clean outliers for influence functions time series.
 
+### *glmnetRcpp* Package
+
+* Repositorty Link: [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp)
+
+* R code to download the package directly from Github: 
+```
+devtools::install_github("AnthonyChristidis/glmnetRcpp")
+```
+
+* Package Details: This package fits the exponential distribution with an elastic net penalty to the influence functions time series in the computation of the standard errors of risk and performance measures. The packages was initially developed by Xin Chen and Daniel Hanson ([*glmnetRcpp*](https://github.com/chenx26/glmnetRcpp)).
+
 ### *glmGammaNet* Package
 
 * Repositorty Link: [*glmGammaNet*](https://github.com/AnthonyChristidis/glmGammaNet)
