@@ -27,7 +27,7 @@ As explained in the previous section, this project contains multiple software pa
 
 * R code to download the package directly from Github: 
 ```
-devtools::install_github("AnthonyChristidis/InfluenceFunctions", build_vignette=TRUE)
+devtools::install_github("AnthonyChristidis/InfluenceFunctions", build_vignettes=TRUE)
 ```
 
 * Package Details: This package was created entirely during the project. It computes the influence functions time series of various risk and performance measures. The computation is available both in *R* and *C++*, with pre-whitening and robust filtering options of the time series available as well. Additional functions to plot the influence functions of risk and performance measures are also available. A plot method is also available (implementation is in **ggplot2**).
@@ -102,7 +102,6 @@ devtools::install_github("AnthonyChristidis/glmGammaNet")
 
 * Package Details: The main task for this package was to merge the [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp) package to the **glmGammaNet** package, such that the overall function from **glmGammaNet** supports both the Exponential and Gamma distributions. This package was then implemented into the **EstimatorStandardError** package. Initially, only the Exponential distribution from **glmnetRcpp** was available to fit the spectral density of the influence functions of the risk and performance measures.
 
-This issue will need to be fixed. In the meantime, it is recommended to download the package files from [here](https://github.com/AnthonyChristidis/glmGammaNet), and to install the package via the command prompt. Here is a [link](http://web.mit.edu/insong/www/pdf/rpackage_instructions.pdf) on how to do so (see Section 3, *Building R Package with Command Line Tools*).
 
 ### *EstimatorStandardError* Package
 
@@ -110,7 +109,7 @@ This issue will need to be fixed. In the meantime, it is recommended to download
 
 * R code to download the package directly from Github: 
 ```
-devtools::install_github("AnthonyChristidis/EstimatorStandardError")
+devtools::install_github("AnthonyChristidis/EstimatorStandardError", build_vignettes=TRUE)
 ```
 
 * Package Details: The main task for this package was to integrate the **InfluenceFunctions** and **glmGammaNet** packages into **EstimatorStandardError**. This allows the user to use both pre-whitening and robust filtering of the influence functions time series prior to fitting either the Exponential or Gamma distributions.
@@ -142,29 +141,33 @@ se.ES <- ES.SE(edhec$CA, p = 1 - alpha.ES, method="historical",nsim = nboot,
                standardize = FALSE, return.coeffs = return.coeffs,
                k_fold_iter = k_fold_iter,
                d.GLM.EN = d.GLM.EN,
-               alpha = alpha.EN, exponential.dist = FALSE)
+               alpha = alpha.EN, fitting.method = "Gamma")
 
 se.ES.exp <- ES.SE(edhec$CA, p = 1 - alpha.ES, method="historical",nsim = nboot,
                    se.method = c("IFcor"),
                    standardize = FALSE, return.coeffs = return.coeffs,
                    k_fold_iter = k_fold_iter,
                    d.GLM.EN = d.GLM.EN, clean = "none", prewhiten = FALSE,
-                   alpha = alpha.EN, exponential.dist = TRUE)
+                   alpha = alpha.EN, fitting.method="Exponential")
 
 #--------- Sortino Ratios estimates and their S.E.'s
 se.SoR.const <- SortinoRatio.SE(edhec$CA, sortino.method = "const",
                                 se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
-                                exponential.dist=TRUE)
+                                fitting.method="Exponential")
 
 se.SoR.mean <- SortinoRatio.SE(edhec$CA, sortino.method = "mean",
                                se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
-                               exponential.dist=TRUE)
+                               fitting.method="Exponential")
 
 #--------- Sharpe Ratio estimates and their S.E.'s
 se.SR <- SharpeRatio.SE(edhec$CA, Rf = 0, p = 0.95, FUN="StdDev", nsim=nboot,
                         se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
                         weights=NULL, annualize = FALSE,
-                        exponential.dist=TRUE)
+                        fitting.method="Exponential")
+```
+* Note: For the full details of the **EstimatorStandardError** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+```
+browseVignettes("EstimatorStandardError")
 ```
 
 ### *PerformanceAnalytics* Package
