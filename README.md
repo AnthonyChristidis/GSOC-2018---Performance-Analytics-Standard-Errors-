@@ -205,13 +205,13 @@ set.seed(seed)
 
 #--------- Expected Shortfall
 ES(edhec, p=.95, method="historical", 
-   SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+   SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), fitting.method="Exponential")
 
 #--------- Value-at-Risk
-VaR(edhec, p=.95, method="historical", SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+VaR(edhec, p=.95, method="historical", SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), fitting.method="Exponential")
 
 #--------- Standard Deviation
-StdDev(edhec, SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), exponential.dist=TRUE)
+StdDev(edhec, SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), fitting.method="Exponential")
 
 ```
 
