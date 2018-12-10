@@ -27,7 +27,7 @@ As explained in the previous section, this project contains multiple software pa
 
 * R code to download the package directly from Github: 
 ```
-devtools::install_github("AnthonyChristidis/InfluenceFunctions")
+devtools::install_github("AnthonyChristidis/InfluenceFunctions", build_vignette=TRUE)
 ```
 
 * Package Details: This package was created entirely during the project. It computes the influence functions time series of various risk and performance measures. The computation is available both in *R* and *C++*, with pre-whitening and robust filtering options of the time series available as well. Additional functions to plot the influence functions of risk and performance measures are also available. A plot method is also available (implementation is in **ggplot2**).
@@ -43,15 +43,25 @@ data(CA.fund)
 
 # Compute basic TS for the mean 
 if.mean <- IF.mean(edhec$CA)
-plot.IF_TS(if.mean)
+plot(if.mean)
+# We can also use the wrapper function IF
+if.mean <- IF(edhec$CA, risk="mean")
+
+# ggplot2 implementation of the IF TS plot
+IF.TS.plot(if.mean)
 
 # Repeat the above but use pre-whitening and robust estimation
 if.mean.pre.robust <- IF.mean(edhec$CA, pre.whiten=TRUE, robust.filtering=TRUE, robust.method="Boudt")
-plot.IF_TS(if.mean)
+plot(if.mean.pre.robust)
+
+# We also have another robust filtering method available
+if.mean.pre.robust2 <- IF.mean(edhec$CA, pre.whiten=TRUE, robust.filtering=TRUE, robust.method="Martin")
+plot(if.mean.pre.robust2)
 
 # Compare the two IF TS
-plot(if.mean, col="blue")
+plot(if.mean, col="black")
 lines(if.mean.pre.robust, col="red")
+lines(if.mean.pre.robust2, col="blue")
 
 # Plot IF for various risk measures
 IF.mean.plot()
@@ -59,9 +69,16 @@ IF.SD.plot()
 IF.VaR.plot()
 IF.ES.plot()
 IF.SR.plot()
+
+# Again, we can use the wrapper function
+IF.plot(risk="OmegaRatio")
 ```
 
-* Note: While the documentation is complete for this package, the vignette will need to be expanded further to demonstrate the full use of the **InfluenceFunctions** package. Further, the robust filtering methods may be updated soon to support more reliable methods to clean outliers for influence functions time series.
+* Note: For the full details of the **InfluenceFunctions** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+```
+browseVignettes("InfluenceFunctions")
+```
+
 
 ### *glmnetRcpp* Package
 
