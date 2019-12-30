@@ -53,7 +53,7 @@ outIF <- IF(risk="mean",
             cleanOutliers=TRUE, cleanMethod=c("locScaleRob", "Boudt")[1], eff=0.99, alpha.robust=0.05)
 ```
 
-* Note: For the full details of the **RPEIF** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+* Note: For the full details of the **RPEIF** package and for more detailed sample code with output, refer to the [RPEIF vignette](https://cran.r-project.org/web/packages/RPEIF/vignettes/RPEIFVignette.pdf) available after the installation of the package.
 ```
 browseVignettes("RPEIF")
 ```
@@ -71,12 +71,19 @@ devtools::install_github("AnthonyChristidis/RPEGLMEN")
 ```
 install.packages("RPEGLMEN")
 ```
+* Note: For the full details of the **RPESE** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+```
+browseVignettes("RPEGLMEN")
+```
 
 * Package Details: This package is designed to provide the user to fit an Exponential or Gamma distribution to the response variable with an elastic net penalty on the predictors. This package is of particular use in combination with the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) and [RPESE](https://github.com/AnthonyChristidis/RPESE) packages, in which the influence function of a time series of returns is used to compute the standard error of a risk and performance measure. See [Chen and Martin (2018)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3085672) for more details.
 
 For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
 
-
+* Note: For the full details of the **RPEGLMEN** package and for more detailed sample code with output, refer to the [RPEGLMEN vignette](https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/RPEGLMENVignette.pdf) available after the installation of the package.
+```
+browseVignettes("RPEGLMEN")
+```
 
 ### *RPESE* Package
 
@@ -98,58 +105,23 @@ For the computational details to fit a Gamma distribution on data with an elasti
 
 * Sample Code: 
 ```
-#--------- Load package
-library(EstimatorStandardError)
-
-# Load data
-data(edhec)
-colnames(edhec)=c("CA", "CTAG", "DIS", "EM",
-                  "EMN", "ED", "FIA", "GM", "L/S",
-                  "MA", "RV", "SS", "FoF")
-                  
-#--------- Set parameters                  
-nboot=500
-return.coeffs = TRUE
-d.GLM.EN = 5
-alpha.ES = 0.05
-alpah.EN = 0.5
-seed = 12345
-k_fold_iter = 1000
-set.seed(seed)
-
-#--------- Expected Shortfall estimates and their S.E.'s
-se.ES <- ES.SE(edhec$CA, p = 1 - alpha.ES, method="historical",nsim = nboot,
-               se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
-               standardize = FALSE, return.coeffs = return.coeffs,
-               k_fold_iter = k_fold_iter,
-               d.GLM.EN = d.GLM.EN,
-               alpha = alpha.EN, fitting.method = "Gamma")
-
-se.ES.exp <- ES.SE(edhec$CA, p = 1 - alpha.ES, method="historical",nsim = nboot,
-                   se.method = c("IFcor"),
-                   standardize = FALSE, return.coeffs = return.coeffs,
-                   k_fold_iter = k_fold_iter,
-                   d.GLM.EN = d.GLM.EN, clean = "none", prewhiten = FALSE,
-                   alpha = alpha.EN, fitting.method="Exponential")
-
-#--------- Sortino Ratios estimates and their S.E.'s
-se.SoR.const <- SortinoRatio.SE(edhec$CA, sortino.method = "const",
-                                se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
-                                fitting.method="Exponential")
-
-se.SoR.mean <- SortinoRatio.SE(edhec$CA, sortino.method = "mean",
-                               se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
-                               fitting.method="Exponential")
-
-#--------- Sharpe Ratio estimates and their S.E.'s
-se.SR <- SharpeRatio.SE(edhec$CA, Rf = 0, p = 0.95, FUN="StdDev", nsim=nboot,
-                        se.method = c("IFiid","IFcor","BOOTiid","BOOTcor"),
-                        weights=NULL, annualize = FALSE,
-                        fitting.method="Exponential")
+# Sample Code
+library(RPESE)
+# Loading data from Performance Analytics
+data(edhec, package="PerformanceAnalytics")
+colnames(edhec) = c("CA", "CTAG", "DIS", "EM","EMN", "ED", "FIA",
+                    "GM", "LS", "MA", "RV", "SS", "FoF")
+# Computing the standard errors for the three influence functions based approaches
+ES.out <- ES.SE(edhec, se.method=c("IFiid","IFcor","IFcorAdapt"),
+          prewhiten=FALSE, 
+          cleanOutliers=FALSE, 
+          fitting.method=c("Exponential", "Gamma")[1])
+# Print output
+printSE(ES.out)
 ```
-* Note: For the full details of the **EstimatorStandardError** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+* Note: For the full details of the **RPESE** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
 ```
-browseVignettes("EstimatorStandardError")
+browseVignettes("RPESE")
 ```
 
 ### *PerformanceAnalytics* Package
