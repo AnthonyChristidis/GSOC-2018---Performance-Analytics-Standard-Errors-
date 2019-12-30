@@ -33,7 +33,7 @@ Below are some details, notes and examples for each of theses packages.
 ```
 devtools::install_github("AnthonyChristidis/RPEIF")
 ```
-* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPEIF)
+* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPEIF).
 ```
 install.packages("RPEIF")
 ```
@@ -70,7 +70,7 @@ browseVignettes("RPEIF")
 ```
 devtools::install_github("AnthonyChristidis/RPEGLMEN")
 ```
-* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPEGLMEN)
+* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPEGLMEN).
 ```
 install.packages("RPEGLMEN")
 ```
@@ -93,7 +93,7 @@ browseVignettes("RPEGLMEN")
 devtools::install_github("AnthonyChristidis/RPESE")
 ```
 
-* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPESE)
+* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPESE).
 ```
 install.packages("RPESE")
 ```
