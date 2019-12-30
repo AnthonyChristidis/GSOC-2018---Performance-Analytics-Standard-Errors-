@@ -74,7 +74,7 @@ install.packages("RPEGLMEN")
 
 * Package Details: This package is designed to provide the user to fit an Exponential or Gamma distribution to the response variable with an elastic net penalty on the predictors. This package is of particular use in combination with the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) and [RPESE](https://github.com/AnthonyChristidis/RPESE) packages, in which the influence function of a time series of returns is used to compute the standard error of a risk and performance measure. See [Chen and Martin (2018)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3085672) for more details.
 
-* Addtional Reference: For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
+* Additional Reference: For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
 
 * Note: For the full details of the **RPEGLMEN** package and for more detailed sample code with output, refer to the [RPEGLMEN vignette](https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/RPEGLMENVignette.pdf) available after the installation of the package.
 ```
