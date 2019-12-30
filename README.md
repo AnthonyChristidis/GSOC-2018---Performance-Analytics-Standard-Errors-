@@ -124,47 +124,35 @@ browseVignettes("RPESE")
 
 ### *PerformanceAnalytics* Package
 
-* Repositorty Link: [*PerformanceAnalytics*](https://github.com/AnthonyChristidis/PerformanceAnalytics)
+* Repositorty Link: [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics)
 
 * R code to download the package directly from Github: 
 ```
 devtools::install_github("AnthonyChristidis/PerformanceAnalytics")
 ```
 
-* Package Details: The main task for this package, which was the final step, was to integrate the computation of standard errors for risk and performance measures into **PerformanceAnalytics**. It was implemented for all risk and performance measures available in the package. A vignette is also being developed to demonstrate the new functionality of **PerformanceAnalytics** to compute standard errors for risk and performance measures.
+* Package Details: The main task for this package, which was the final step, was to integrate the computation of standard errors for risk and performance measures from the [RPESE](https://github.com/AnthonyChristidis/RPESE) package into [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics). It was implemented for all risk and performance measures available in [RPESE](https://github.com/AnthonyChristidis/RPESE). A [vignette](https://github.com/AnthonyChristidis/PerformanceAnalytics/blob/master/vignettes/PA_StandardErrors.pdf) was also developed to demonstrate the new functionality of [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) to compute standard errors for risk and performance measures.
 
 * Sample Code:
 ```
-#--------- Load package
+# Sample Code
 library(PerformanceAnalytics)
-
-#--------- Load data
-data(edhec)
-colnames(edhec)=c("CA", "CTAG", "DIS", "EM",
-                  "EMN", "ED", "FIA", "GM", "L/S",
-                  "MA", "RV", "SS", "FoF")
-                  
-#--------- Set parameters                  
-nboot=500
-return.coeffs = TRUE
-d.GLM.EN = 5
-alpha.ES = 0.05
-alpah.EN = 0.5
-seed = 12345
-k_fold_iter = 1000
-set.seed(seed)
-
-
-#--------- Expected Shortfall
-ES(edhec, p=.95, method="historical", 
-   SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), fitting.method="Exponential")
-
-#--------- Value-at-Risk
-VaR(edhec, p=.95, method="historical", SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), fitting.method="Exponential")
-
-#--------- Standard Deviation
-StdDev(edhec, SE=TRUE, se.method=c("IFiid","IFcor","BOOTiid","BOOTcor"), fitting.method="Exponential")
-
+# Loading data from Performance Analytics
+data(edhec, package="PerformanceAnalytics")
+colnames(edhec) = c("CA", "CTAG", "DIS", "EM","EMN", "ED", "FIA",
+                    "GM", "LS", "MA", "RV", "SS", "FoF")
+ 
+# Setting the control parameters
+ES.control <- RPESE.control(measure="ES", cleanOutliers=TRUE, 
+                            freq.include="Decimate",
+                            se.method=c("IFiid", 
+                                        "IFcor", 
+                                        "BOOTiid", 
+                                        "BOOTcor"))
+                                        
+# Expected shortfall SE computation with control parameters
+ESout <- ES(edhec, SE=TRUE, SE.control=ES.control)
+t(ESout)
 ```
 
 
