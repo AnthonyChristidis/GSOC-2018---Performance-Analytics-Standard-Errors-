@@ -19,7 +19,7 @@ with the goal of giving the **PerformanceAnalytics** package users more function
 
 ## Repository Links
 
-As explained in the previous section, this project contains multiple software packages that are interconnected to each other (see [project proposal](https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf) for more details). Below are some details, notes and examples for each of theses packages.
+Below are some details, notes and examples for each of theses packages.
 
 ### *RPEIF* Package
 
