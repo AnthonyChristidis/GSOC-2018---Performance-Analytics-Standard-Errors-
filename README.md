@@ -80,7 +80,7 @@ browseVignettes("RPEGLMEN")
 
 For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
 
-* Note: For the full details of the **RPEGLMEN** package and for more detailed sample code with output, refer to the [RPEGLMEN vignette](https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/RPEGLMENVignette.pdf) available after the installation of the package.
+* Note: For the full details of the **RPEGLMEN** package and for more detailed sample code with output, refer to the [RPEGLMEN vignette](https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/RPEGLMENVignette.pdf) available after the installation of the package.
 ```
 browseVignettes("RPEGLMEN")
 ```
@@ -89,19 +89,18 @@ browseVignettes("RPEGLMEN")
 
 * Repositorty Link: [*RPESE*](https://github.com/AnthonyChristidis/RPESE)
 
-* R code to download the package directly from Github: 
+* You can install the **development** version from [GitHub](https://github.com/AnthonyChristidis/RPESE).
 ```
-devtools::install_github("AnthonyChristidis/RPESE", build_vignettes=TRUE)
+devtools::install_github("AnthonyChristidis/RPESE")
+```
 
-```
-* R code to download the package directly from CRAN: 
+* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPESE)
 ```
 install.packages("RPESE")
 ```
 
-* Package Details: This package is designed to provide the user to fit an Exponential or Gamma distribution to the response variable with an elastic net penalty on the predictors. This package is of particular use in combination with the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) and [RPESE](https://github.com/AnthonyChristidis/RPESE) packages, in which the influence function of a time series of returns is used to compute the standard error of a risk and performance measure. See [Chen and Martin (2018)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3085672) for more details.
+* Package Details: This package provides functions for computing standared error estimates for risk and performance measures of asset or portfolio returns. It works in combination with the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) and [RPESE](https://github.com/AnthonyChristidis/RPESE) packages.
 
-For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
 
 * Sample Code: 
 ```
@@ -119,7 +118,7 @@ ES.out <- ES.SE(edhec, se.method=c("IFiid","IFcor","IFcorAdapt"),
 # Print output
 printSE(ES.out)
 ```
-* Note: For the full details of the **RPESE** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+* Note: For the full details of the **RPESE** package and for more detailed sample code with output, refer to the [RPESE vignette](https://cran.r-project.org/web/packages/RPESE/vignettes/RPESEVignette.pdf) available after the installation of the package.
 ```
 browseVignettes("RPESE")
 ```
