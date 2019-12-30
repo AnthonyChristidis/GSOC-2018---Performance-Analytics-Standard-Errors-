@@ -11,11 +11,14 @@
 The current finance industry practice in reporting risk and performance measure estimates of assets
 and portfolios does not typically include reporting the standard error of these estimates: consumers have
 no clue as to how accurate those estimates are. A new approach based on influence functions has been developed to provide an accurate estimate of standard errors of risk and performance of assets and portfolios for returns with both serially uncorrelated and serially correlated returns. This project involves: 
-1. Developing a new *R* package named **RPEIF** with full documentation, and integrate this package into **RPESE**,
-2. Developing the *R* package named **RPEGLMEN** to support both the Gamma and Exponential distributions as it relates to fitting these distributions to the spectral density of the influence functions of risk measures, and integrate this package into **RPESE**, and
-3. Integrating the *R* package **RPESE** into the existing *R* package **PerformanceAnalytics** (along with a working vignette).
+1. Developing a new *R* package named [*RPEIF*](https://github.com/AnthonyChristidis/RPEIF) with full documentation, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE)
+,
+2. Developing the *R* package named [*RPEGLMEN*](https://github.com/AnthonyChristidis/RPEGLMEN) to support both the Gamma and Exponential distributions as it relates to fitting these distributions to the spectral density of the influence functions of risk measures, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE)
+, and
+3. Integrating the *R* package [RPESE](https://github.com/AnthonyChristidis/RPESE)
+ into the existing *R* package [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) (along with a working vignette).
 
-with the goal of giving the **PerformanceAnalytics** package users more functionality and the option for the first time to report the standard errors of a very wide range of risk and performance measure estimates of assets and portfolios when returns are serially correlated as well as when they are uncorrelated.
+with the goal of giving the [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) package users more functionality and the option for the first time to report the standard errors of a very wide range of risk and performance measure estimates of assets and portfolios when returns are serially correlated as well as when they are uncorrelated.
 
 ## Repository Links
 
@@ -23,7 +26,7 @@ Below are some details, notes and examples for each of theses packages.
 
 ### *RPEIF* Package
 
-* Repositorty Link: [*RPEIF*](https://github.com/AnthonyChristidis/RPEIF)
+* Repositorty Link: [RPEIF](https://github.com/AnthonyChristidis/RPEIF)
 
 
 * You can install the **development** version from [GitHub](https://github.com/AnthonyChristidis/RPEIF).
@@ -53,7 +56,7 @@ outIF <- IF(risk="mean",
             cleanOutliers=TRUE, cleanMethod=c("locScaleRob", "Boudt")[1], eff=0.99, alpha.robust=0.05)
 ```
 
-* Note: For the full details of the **RPEIF** package and for more detailed sample code with output, refer to the [RPEIF vignette](https://cran.r-project.org/web/packages/RPEIF/vignettes/RPEIFVignette.pdf) available after the installation of the package.
+* Note: For the full details of the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) package and for more detailed sample code with output, refer to the [RPEIF vignette](https://cran.r-project.org/web/packages/RPEIF/vignettes/RPEIFVignette.pdf) available after the installation of the package.
 ```
 browseVignettes("RPEIF")
 ```
@@ -61,7 +64,7 @@ browseVignettes("RPEIF")
 
 ### *RPEGLMEN* Package
 
-* Repositorty Link: [*RPEGLMEN*](https://github.com/AnthonyChristidis/RPEGLMEN)
+* Repositorty Link: [RPEGLMEN](https://github.com/AnthonyChristidis/RPEGLMEN)
 
 * You can install the **development** version from [GitHub](https://github.com/AnthonyChristidis/RPEGLMEN).
 ```
@@ -76,14 +79,14 @@ install.packages("RPEGLMEN")
 
 * Additional Reference: For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
 
-* Note: For the full details of the **RPEGLMEN** package and for more detailed sample code with output, refer to the [RPEGLMEN vignette](https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/RPEGLMENVignette.pdf) available after the installation of the package.
+* Note: For the full details of the [RPEGLMEN](https://github.com/AnthonyChristidis/RPEGLMEN) package and for more detailed sample code with output, refer to the [RPEGLMEN vignette](https://cran.r-project.org/web/packages/RPEGLMEN/vignettes/RPEGLMENVignette.pdf) available after the installation of the package.
 ```
 browseVignettes("RPEGLMEN")
 ```
 
 ### *RPESE* Package
 
-* Repositorty Link: [*RPESE*](https://github.com/AnthonyChristidis/RPESE)
+* Repositorty Link: [RPESE](https://github.com/AnthonyChristidis/RPESE)
 
 * You can install the **development** version from [GitHub](https://github.com/AnthonyChristidis/RPESE).
 ```
@@ -114,7 +117,7 @@ ES.out <- ES.SE(edhec, se.method=c("IFiid","IFcor","IFcorAdapt"),
 # Print output
 printSE(ES.out)
 ```
-* Note: For the full details of the **RPESE** package and for more detailed sample code with output, refer to the [RPESE vignette](https://cran.r-project.org/web/packages/RPESE/vignettes/RPESEVignette.pdf) available after the installation of the package.
+* Note: For the full details of the [RPESE](https://github.com/AnthonyChristidis/RPESE) package and for more detailed sample code with output, refer to the [RPESE vignette](https://cran.r-project.org/web/packages/RPESE/vignettes/RPESEVignette.pdf) available after the installation of the package.
 ```
 browseVignettes("RPESE")
 ```
