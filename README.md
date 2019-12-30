@@ -21,98 +21,80 @@ with the goal of giving the **PerformanceAnalytics** package users more function
 
 As explained in the previous section, this project contains multiple software packages that are interconnected to each other (see [project proposal](https://drive.google.com/open?id=1J8bPaL-230V42wpGpXs7YHJSusYYKTrf) for more details). Below are some details, notes and examples for each of theses packages.
 
-### *InfluenceFunctions* Package
+### *RPEIF* Package
 
-* Repositorty Link: [*InfluenceFunctions*](https://github.com/AnthonyChristidis/InfluenceFunctions)
+* Repositorty Link: [*RPEIF*](https://github.com/AnthonyChristidis/RPEIF)
 
-* R code to download the package directly from Github: 
+
+* You can install the **development** version from [GitHub](https://github.com/AnthonyChristidis/RPEIF).
 ```
-devtools::install_github("AnthonyChristidis/InfluenceFunctions", build_vignettes=TRUE)
+devtools::install_github("AnthonyChristidis/RPEIF")
+```
+* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPEIF)
+```
+install.packages("RPEIF")
 ```
 
-* Package Details: This package was created entirely during the project. It computes the influence functions time series of various risk and performance measures. The computation is available both in *R* and *C++*, with pre-whitening and robust filtering options of the time series available as well. Additional functions to plot the influence functions of risk and performance measures are also available. A plot method is also available (implementation is in **ggplot2**).
+* Package Details: This package was created entirely during the project. It computes the influence functions time series of various risk and performance measures. The computation robust filtering options of the time series are available. Additional functions to plot the influence functions of risk and performance measures are also available.
 
 * Sample Code:
 ```
-# Load package
-library(InfluenceFunctions)
-
-# Load data
-data(edhec)
-data(CA.fund)
-
-# Compute basic TS for the mean 
-if.mean <- IF.mean(edhec$CA)
-plot(if.mean)
-# We can also use the wrapper function IF
-if.mean <- IF(edhec$CA, risk="mean")
-
-# ggplot2 implementation of the IF TS plot
-IF.TS.plot(if.mean)
-
-# Repeat the above but use pre-whitening and robust estimation
-if.mean.pre.robust <- IF.mean(edhec$CA, pre.whiten=TRUE, robust.filtering=TRUE, robust.method="Boudt")
-plot(if.mean.pre.robust)
-
-# We also have another robust filtering method available
-if.mean.pre.robust2 <- IF.mean(edhec$CA, pre.whiten=TRUE, robust.filtering=TRUE, robust.method="Martin")
-plot(if.mean.pre.robust2)
-
-# Compare the two IF TS
-plot(if.mean, col="black")
-lines(if.mean.pre.robust, col="red")
-lines(if.mean.pre.robust2, col="blue")
-
-# Plot IF for various risk measures
-IF.mean.plot()
-IF.SD.plot()
-IF.VaR.plot()
-IF.ES.plot()
-IF.SR.plot()
-
-# Again, we can use the wrapper function
-IF.plot(risk="OmegaRatio")
+# Sample Code
+library(RPEIF)
+# Computing the IF of the returns (with outlier cleaning and prewhitening)
+# Loading the data
+data(edhec, package="PerformanceAnalytics")
+colnames(edhec) = c("CA", "CTAG", "DIS", "EM","EMN", "ED", "FIA",
+                    "GM", "LS", "MA", "RV", "SS", "FoF")
+outIF <- IF(risk="mean",
+            returns=edhec[,"CA"], evalShape=FALSE, retVals=NULL, nuisPars=NULL,
+            IFplot=TRUE, IFprint=TRUE,
+            prewhiten=TRUE,
+            cleanOutliers=TRUE, cleanMethod=c("locScaleRob", "Boudt")[1], eff=0.99, alpha.robust=0.05)
 ```
 
-* Note: For the full details of the **InfluenceFunctions** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
+* Note: For the full details of the **RPEIF** package and for more detailed sample code with output, refer to the vignette available after the installation of the package.
 ```
-browseVignettes("InfluenceFunctions")
+browseVignettes("RPEIF")
 ```
 
 
-### *glmnetRcpp* Package
+### *RPEGLMEN* Package
 
-* Repositorty Link: [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp)
+* Repositorty Link: [*RPEGLMEN*](https://github.com/AnthonyChristidis/RPEGLMEN)
+
+* You can install the **development** version from [GitHub](https://github.com/AnthonyChristidis/RPEGLMEN).
+```
+devtools::install_github("AnthonyChristidis/RPEGLMEN")
+```
+* You can install the **stable** version on [R CRAN](https://cran.r-project.org/package=RPEGLMEN)
+```
+install.packages("RPEGLMEN")
+```
+
+* Package Details: This package is designed to provide the user to fit an Exponential or Gamma distribution to the response variable with an elastic net penalty on the predictors. This package is of particular use in combination with the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) and [RPESE](https://github.com/AnthonyChristidis/RPESE) packages, in which the influence function of a time series of returns is used to compute the standard error of a risk and performance measure. See [Chen and Martin (2018)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3085672) for more details.
+
+For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
+
+
+
+### *RPESE* Package
+
+* Repositorty Link: [*RPESE*](https://github.com/AnthonyChristidis/RPESE)
 
 * R code to download the package directly from Github: 
 ```
-devtools::install_github("AnthonyChristidis/glmnetRcpp")
+devtools::install_github("AnthonyChristidis/RPESE", build_vignettes=TRUE)
+
+```
+* R code to download the package directly from CRAN: 
+```
+install.packages("RPESE")
 ```
 
-* Package Details: This package fits the exponential distribution with an elastic net penalty to the influence functions time series in the computation of the standard errors of risk and performance measures. The packages was initially developed by Xin Chen and Daniel Hanson ([*glmnetRcpp*](https://github.com/chenx26/glmnetRcpp)).
+* Package Details: This package is designed to provide the user to fit an Exponential or Gamma distribution to the response variable with an elastic net penalty on the predictors. This package is of particular use in combination with the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) and [RPESE](https://github.com/AnthonyChristidis/RPESE) packages, in which the influence function of a time series of returns is used to compute the standard error of a risk and performance measure. See [Chen and Martin (2018)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3085672) for more details.
 
-### *glmGammaNet* Package
-
-* Repositorty Link: [*glmGammaNet*](https://github.com/AnthonyChristidis/glmGammaNet)
-
-* R code to download the package directly from Github: 
-```
-devtools::install_github("AnthonyChristidis/glmGammaNet")
-```
-
-* Package Details: The main task for this package was to merge the [*glmnetRcpp*](https://github.com/AnthonyChristidis/glmnetRcpp) package to the **glmGammaNet** package, such that the overall function from **glmGammaNet** supports both the Exponential and Gamma distributions. This package was then implemented into the **EstimatorStandardError** package. Initially, only the Exponential distribution from **glmnetRcpp** was available to fit the spectral density of the influence functions of the risk and performance measures.
-
-
-### *EstimatorStandardError* Package
-
-* Repositorty Link: [*EstimatorStandardError*](https://github.com/AnthonyChristidis/EstimatorStandardError)
-
-* R code to download the package directly from Github: 
-```
-devtools::install_github("AnthonyChristidis/EstimatorStandardError", build_vignettes=TRUE)
-```
-
-* Package Details: The main task for this package was to integrate the **InfluenceFunctions** and **glmGammaNet** packages into **EstimatorStandardError**. This allows the user to use both pre-whitening and robust filtering of the influence functions time series prior to fitting either the Exponential or Gamma distributions.
+For the computational details to fit a Gamma distribution on data with an elastic net penalty, see [Chen, Arakvin and Martin (2018)](https://arxiv.org/abs/1804.07780).
 
 * Sample Code: 
 ```
