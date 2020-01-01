@@ -131,7 +131,7 @@ browseVignettes("RPESE")
 devtools::install_github("AnthonyChristidis/PerformanceAnalytics")
 ```
 
-* Package Details: The main task for this package, which was the final step, was to integrate the computation of standard errors for risk and performance measures from the [RPESE](https://github.com/AnthonyChristidis/RPESE) package into [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics). It was implemented for all risk and performance measures available in [RPESE](https://github.com/AnthonyChristidis/RPESE). A [vignette](https://github.com/AnthonyChristidis/PerformanceAnalytics/blob/master/vignettes/PA_StandardErrors.pdf) was also developed to demonstrate the new functionality of [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) to compute standard errors for risk and performance measures.
+* Package Details: The main task for this package, which was the final step, was to integrate the computation of standard errors for risk and performance measures from the [RPESE](https://github.com/AnthonyChristidis/RPESE) package into [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics). It was implemented for all risk and performance measures available in [RPESE](https://github.com/AnthonyChristidis/RPESE). A [new PerformanceAnalytics vignette](https://github.com/AnthonyChristidis/PerformanceAnalytics/blob/master/vignettes/PA_StandardErrors.pdf) was also developed to demonstrate the new functionality of [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) to compute standard errors for risk and performance measures.
 
 * Sample Code:
 ```
