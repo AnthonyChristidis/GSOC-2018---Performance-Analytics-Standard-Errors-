@@ -11,9 +11,9 @@
 The current finance industry practice in reporting risk and performance measure estimates of assets
 and portfolios does not typically include reporting the standard error of these estimates: consumers have
 no clue as to how accurate those estimates are. A new approach based on influence functions has been developed to provide an accurate estimate of standard errors of risk and performance of assets and portfolios for returns with both serially uncorrelated and serially correlated returns. This project involves: 
-1. Developing a new *R* package named [*RPEIF*](https://github.com/AnthonyChristidis/RPEIF) with full documentation, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE)
+1. Developing a new *R* package named [RPEIF](https://github.com/AnthonyChristidis/RPEIF) with full documentation, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE)
 ,
-2. Developing the *R* package named [*RPEGLMEN*](https://github.com/AnthonyChristidis/RPEGLMEN) to support both the Gamma and Exponential distributions as it relates to fitting these distributions to the spectral density of the influence functions of risk measures, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE)
+2. Developing the *R* package named [RPEGLMEN](https://github.com/AnthonyChristidis/RPEGLMEN) to support both the Gamma and Exponential distributions as it relates to fitting these distributions to the spectral density of the influence functions of risk measures, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE)
 , and
 3. Integrating the *R* package [RPESE](https://github.com/AnthonyChristidis/RPESE)
  into the existing *R* package [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) (along with a working vignette).
