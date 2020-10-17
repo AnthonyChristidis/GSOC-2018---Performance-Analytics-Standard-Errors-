@@ -53,7 +53,7 @@ outIF <- IF(risk="mean",
             returns=edhec[,"CA"], evalShape=FALSE, retVals=NULL, nuisPars=NULL,
             IFplot=TRUE, IFprint=TRUE,
             prewhiten=TRUE,
-            cleanOutliers=TRUE, cleanMethod=c("locScaleRob", "Boudt")[1], eff=0.99, alpha.robust=0.05)
+            cleanOutliers=TRUE, cleanMethod=c("locScaleRob"), eff=0.99, alpha.robust=0.05)
 ```
 
 * Note: For the full details of the [RPEIF](https://github.com/AnthonyChristidis/RPEIF) package and for more detailed sample code with output, refer to the [RPEIF vignette](https://cran.r-project.org/web/packages/RPEIF/vignettes/RPEIFVignette.pdf) available after the installation of the package.
