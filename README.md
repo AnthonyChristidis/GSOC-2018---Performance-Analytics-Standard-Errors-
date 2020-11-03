@@ -143,7 +143,9 @@ colnames(edhec) = c("CA", "CTAG", "DIS", "EM","EMN", "ED", "FIA",
                     "GM", "LS", "MA", "RV", "SS", "FoF")
  
 # Setting the control parameters
-ES.control <- RPESE.control(estimator="ES", cleanOutliers=TRUE, 
+ES.control <- RPESE.control(estimator="ES", 
+                            method="historical", invert=FALSE,
+                            cleanOutliers=TRUE, 
                             freq.include="Decimate",
                             se.method=c("IFiid", 
                                         "IFcor", 
