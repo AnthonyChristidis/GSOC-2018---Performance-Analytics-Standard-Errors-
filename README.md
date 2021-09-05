@@ -14,7 +14,7 @@ no clue as to how accurate those estimates are. A new approach based on influenc
 1. Developing a new *R* package named [RPEIF](https://github.com/AnthonyChristidis/RPEIF) with full documentation, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE),
 2. Developing the *R* package named [RPEGLMEN](https://github.com/AnthonyChristidis/RPEGLMEN) to support both the Gamma and Exponential distributions as it relates to fitting these distributions to the spectral density of the influence functions of risk measures, and integrate this package into [RPESE](https://github.com/AnthonyChristidis/RPESE), and
 3. Integrating the *R* package [RPESE](https://github.com/AnthonyChristidis/RPESE)
- into the existing *R* package [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) (along with a working vignette).
+ into the existing *R* package [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) (along with a working vignette),
 
 with the goal of giving the [PerformanceAnalytics](https://github.com/AnthonyChristidis/PerformanceAnalytics) package users more functionality and the option for the first time to report the standard errors of a very wide range of risk and performance measure estimates of assets and portfolios when returns are serially correlated as well as when they are uncorrelated.
 
